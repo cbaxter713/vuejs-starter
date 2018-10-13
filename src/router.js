@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import NotFound from './views/NotFound.vue'
-import Preview from './views/Preview.vue'
-import Tutorial from './views/Tutorial.vue'
+import Home from './views/Home.vue'
+import Team from './views/TeamPage.vue'
+import TeamMember from './views/TeamMember.vue'
+import About from './views/About.vue'
 
 Vue.use(Router)
 
@@ -11,7 +13,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: { name: 'tutorial' }
+      name: 'home',
+      component: Home
     },
     {
       path: '/not-found',
@@ -19,14 +22,19 @@ export default new Router({
       component: NotFound
     },
     {
-      path: '/preview',
-      name: 'preview',
-      component: Preview
+      path: '/team',
+      name: 'team',
+      component: Team
     },
     {
-      path: '/tutorial',
-      name: 'tutorial',
-      component: Tutorial
+      path: '/team/:uid',
+      name: 'team-member',
+      component: TeamMember
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: About
     },
     {
       path: '*',
