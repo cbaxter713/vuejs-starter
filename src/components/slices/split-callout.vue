@@ -1,5 +1,5 @@
 <template>
-  <section class="split-callout">
+  <section class="split-callout" :class="{'image-right': fields.image_alignment === 'right'}">
     <div class="callout-image">
       <prismic-image :field="fields.callout_image"/>
     </div>
@@ -44,6 +44,7 @@
   }
 
   .callout-content {
+    width: 50%;
     padding: 40px;
     display: flex;
     flex-direction: column;
@@ -57,5 +58,13 @@
     color: white;
     text-align: center;
     margin: 20px 0;
+  }
+
+  .image-right .callout-image {
+    order: 2;
+  }
+
+  .image-right .callout-content {
+    order: 1;
   }
 </style>
