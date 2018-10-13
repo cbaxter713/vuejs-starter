@@ -1,22 +1,25 @@
 <template>
   <header>
-    <img class="header-logo" src="../assets/img/zr-logo.png" />
+    <img class="header-logo" src="../../assets/img/zr-logo.png" />
     <nav>
-      <router-link to="/">Home</router-link>
-      <router-link to="/team">Team</router-link>
-      <router-link to="/about">About</router-link>
+      <template v-for="link in links">
+        <router-link :to="link.primary.link_url">{{link.primary.link_label}}</router-link>
+      </template>
     </nav>
   </header>
 </template>
 
 <script>
   export default {
-    name: "header",
+    name: "AppHeader",
     data() {
       return {
         title: "header"
       }
-    }
+    },
+    props: [
+      'links'
+    ]
   }
 </script>
 

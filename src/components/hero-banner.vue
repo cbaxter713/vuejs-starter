@@ -20,7 +20,6 @@
     name: "hero-banner",
     data() {
       return {
-        title: "hero-banner"
       }
     },
     props: {

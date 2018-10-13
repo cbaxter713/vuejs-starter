@@ -1,21 +1,58 @@
 <template>
   <div id="app">
-    <app-header></app-header>
+    <app-header :links="headerLinks"></app-header>
     <main>
       <transition name="fade" mode="out-in">
         <router-view/>
       </transition>
     </main>
+    <app-footer :links="footerLinks"></app-footer>
   </div>
 </template>
 
 <script>
-  import AppHeader from './components/header.vue'
+  import AppHeader from './components/decorator/header.vue';
+  import AppFooter from './components/decorator/footer.vue';
 
   export default {
     name: 'App',
     components: {
-      AppHeader
+      AppHeader,
+      AppFooter
+    },
+    data() {
+      return {
+        headerLinks: [],
+        footerLinks: []
+      }
+    },
+    methods: {
+      getHeaderContent () {
+        this.$prismic.client.getByUID('nav_menu', 'main-nav')
+        .then((document) => {
+          if (document) {
+            console.log('headerData, ', document.data.nav);
+            this.headerLinks = document.data.nav;
+          }
+        })
+      },
+      getFooterContent () {
+        this.$prismic.client.getByUID('nav_menu', 'footer-nav')
+        .then((document) => {
+          if (document) {
+            this.footerLinks = document.data.nav;
+          }
+        })
+      }
+    },
+    created () {
+      this.getHeaderContent();
+      this.getFooterContent();
+    },
+    beforeRouteUpdate (to, from, next) {
+      this.getHeaderContent();
+      this.getFooterContent();
+      next()
     }
   }
 </script>
