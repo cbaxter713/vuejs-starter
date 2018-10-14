@@ -8,12 +8,16 @@ export default function (doc) {
     return '/not-found'
   }
 
-  if (doc.type === 'home') {
+  if (doc.type === 'home_page') {
     return '/'
   }
 
-  if (doc.type === 'page') {
-    return '/page/' + doc.uid
+  if (doc.type === 'team_page') {
+    return '/team/'
+  }
+
+  if (doc.type === 'team_member') {
+    return '/team/' + doc.uid
   }
 
   return '/not-found'

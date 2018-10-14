@@ -5,6 +5,7 @@ import Home from './views/Home.vue'
 import Team from './views/TeamPage.vue'
 import TeamMember from './views/TeamMember.vue'
 import About from './views/About.vue'
+import Preview from './views/Preview.vue'
 
 Vue.use(Router)
 
@@ -35,6 +36,11 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: About
+    },
+    {
+      path: '/preview',
+      name: 'preview',
+      component: Preview
     },
     {
       path: '*',

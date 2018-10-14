@@ -3,7 +3,9 @@
     <img class="header-logo" src="../../assets/img/zr-logo.png" />
     <nav>
       <template v-for="link in links">
-        <router-link :to="link.primary.link_url">{{link.primary.link_label}}</router-link>
+        <prismic-link :field="link.primary.link">
+          {{link.primary.link_label}}
+        </prismic-link>
       </template>
     </nav>
   </header>

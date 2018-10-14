@@ -9,8 +9,8 @@ Vue.config.productionTip = false
 
 Vue.use(PrismicVue, {
   endpoint: window.prismic.endpoint,
-  linkResolver,
-  htmlSerializer
+  linkResolver: linkResolver,
+  htmlSerializer: htmlSerializer
 })
 
 new Vue({

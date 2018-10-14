@@ -29,8 +29,12 @@
         fields: {
           title: null,
           subtitle: null,
-          bannerDesktop: null,
-          bannerMobile: null,
+          bannerDesktop: {
+            url: null
+          },
+          bannerMobile: {
+            url: null
+          },
           slices: []
         }
       }

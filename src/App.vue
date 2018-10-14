@@ -31,8 +31,8 @@
         this.$prismic.client.getByUID('nav_menu', 'main-nav')
         .then((document) => {
           if (document) {
-            console.log('headerData, ', document.data.nav);
             this.headerLinks = document.data.nav;
+            console.log('headerLinks, ', this.headerLinks);
           }
         })
       },
