@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <app-header :links="headerLinks"></app-header>
+  <div id="app" class="app-wrapper">
+    <app-header :links="headerLinks" :fixed="true"></app-header>
     <main>
       <transition name="fade" mode="out-in">
         <router-view/>
@@ -41,6 +41,7 @@
         .then((document) => {
           if (document) {
             this.footerLinks = document.data.nav;
+            console.log('footerLinks, ', this.footerLinks);
           }
         })
       }
@@ -62,7 +63,11 @@
   @import "./assets/css/prismic-edit-button.css";
 
   main {
+    background-color: #000;
+    padding-top: 70px;
     width: 100%;
+    min-height: 100vh;
+    color: #fff;
     font-family: Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
